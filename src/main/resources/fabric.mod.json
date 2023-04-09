@@ -4,9 +4,9 @@
   "version": "${version}",
 
   "name": "Vanity",
-  "description": "TEMP",
+  "description": "Allows you to hide your armor.",
   "authors": [
-    "Turnip Labs"
+    "Varigata"
   ],
   "contact": {
     "homepage": "",
