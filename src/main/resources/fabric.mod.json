@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "vanity",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This mod aims to help new BTA modders.",
+  "name": "Vanity",
+  "description": "TEMP",
   "authors": [
     "Turnip Labs"
   ],
@@ -18,11 +18,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-        "turniplabs.examplemod.ExampleMod"
+      "varigata.vanity.Vanity"
     ]
   },
   "mixins": [
-      "examplemod.mixins.json"
+      "vanity.mixins.json"
   ],
 
   "depends": {
