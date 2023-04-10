@@ -4,7 +4,8 @@
     "package": "varigata.vanity.mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
-        "DisableArmor"
+        "DisableArmor",
+        "vanity_GuiInventory"
     ],
     "client": [
     ],
