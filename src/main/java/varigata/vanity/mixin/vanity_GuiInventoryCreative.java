@@ -4,11 +4,13 @@ package varigata.vanity.mixin;
 import net.minecraft.src.GuiButton;
 import net.minecraft.src.GuiInventoryCreative;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = GuiInventoryCreative.class, remap = false)
 public class vanity_GuiInventoryCreative extends vanity_GuiInventory {
 
+    //TODO: This sucks. There has to be a better way to do this.
     int hideArmorButtonFloatX = 117;
 
     @Override

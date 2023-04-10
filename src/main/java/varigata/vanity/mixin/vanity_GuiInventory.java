@@ -1,12 +1,12 @@
 package varigata.vanity.mixin;
 
 import net.minecraft.src.*;
-import org.lwjgl.opengl.GL11;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import varigata.vanity.PlayerVanityAccessor;
 
 @Mixin(value = GuiInventory.class, remap = false)
 public class vanity_GuiInventory extends GuiScreen {
@@ -18,7 +18,7 @@ public class vanity_GuiInventory extends GuiScreen {
     GuiButton hideArmorButton;
 
 
-    @Inject(method = "initGui", at = @At(value = "HEAD"))
+    @Inject(method = "initGui", at = @At(value = "INVOKE", target = "Lnet/minecraft/src/GuiInventory;updateOverlayButtons()V"))
     void vanity_initGui(CallbackInfo ci) {
         this.hideArmorButton = new GuiButton(101, this.width / 2 - hideArmorButtonFloatX, this.height / 2 - 74, 9, 9, "");
         this.hideArmorButton.visible = false;
@@ -49,19 +49,19 @@ public class vanity_GuiInventory extends GuiScreen {
 
             this.drawTexturedModalRect(this.hideArmorButton.xPosition, this.hideArmorButton.yPosition, 176, 0, this.hideArmorButton.getWidth(), this.hideArmorButton.getHeight());
 
-            // TODO: Draw an X over the symbol when visibility is off AND when visibility is on and hovering over the symbol + vice versa
-            //if (this.hideArmorButton.isHovered(x, y)) {
-            //    this.drawTexturedModalRect(this.hideArmorButton.xPosition, this.hideArmorButton.yPosition, 185, 0, this.hideArmorButton.getWidth(), this.hideArmorButton.getHeight());
-            //} else {
-            //    this.drawTexturedModalRect(this.hideArmorButton.xPosition, this.hideArmorButton.yPosition, 176, 0, this.hideArmorButton.getWidth(), this.hideArmorButton.getHeight());
-            //}
+            if (this.hideArmorButton.isHovered(x, y) ^ ((PlayerVanityAccessor)this.mc.thePlayer).isArmorHidden()) {
+                this.drawTexturedModalRect(this.hideArmorButton.xPosition + 1, this.hideArmorButton.yPosition, 195, 0, this.hideArmorButton.getWidth(), this.hideArmorButton.getHeight());
+            }
         }
     }
 
     @Inject(method = "actionPerformed", at = @At(value = "HEAD"))
     protected void actionPerformed(GuiButton guibutton, CallbackInfo ci) {
+        //System.out.println("AA");
         if (guibutton == this.hideArmorButton) {
-            this.mc.gameSettings.armorProtectionOverlay.toggle();
+            System.out.println("Woah u clickied!");
+            ((PlayerVanityAccessor)this.mc.thePlayer).toggleArmorHidden();
+            //this.mc.gameSettings.armorProtectionOverlay.toggle();
         }
     }
 }

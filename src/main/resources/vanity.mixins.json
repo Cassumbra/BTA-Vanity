@@ -6,7 +6,8 @@
     "mixins": [
         "DisableArmor",
         "vanity_GuiInventory",
-        "vanity_GuiInventoryCreative"
+        "vanity_GuiInventoryCreative",
+        "vanity_EntityPlayer"
     ],
     "client": [
     ],
