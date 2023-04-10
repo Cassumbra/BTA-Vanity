@@ -43,7 +43,7 @@ public class vanity_GuiInventory extends GuiScreen {
 
     }
 
-    @Inject(method = "drawScreen", at = @At(value = "TAIL"))
+    @Inject(method = "drawScreen", at = @At(value = "INVOKE", target = "Lorg/lwjgl/opengl/GL11;glEnable(I)V", shift = At.Shift.AFTER))
     public void vanity_drawScreen(int x, int y, float renderPartialTicks, CallbackInfo ci) {
         if (this.hideArmorButton != null) {
 
