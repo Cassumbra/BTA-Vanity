@@ -14,7 +14,6 @@ public class vanity_EntityPlayer implements PlayerVanityAccessor {
 
     @Override
     public void toggleArmorHidden() {
-        System.out.println("Toggling armor visibility.");
         armorHidden = !armorHidden;
     }
 }

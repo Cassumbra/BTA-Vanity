@@ -59,7 +59,6 @@ public class vanity_GuiInventory extends GuiScreen {
     protected void actionPerformed(GuiButton guibutton, CallbackInfo ci) {
         //System.out.println("AA");
         if (guibutton == this.hideArmorButton) {
-            System.out.println("Woah u clickied!");
             ((PlayerVanityAccessor)this.mc.thePlayer).toggleArmorHidden();
             //this.mc.gameSettings.armorProtectionOverlay.toggle();
         }
