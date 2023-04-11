@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import varigata.vanity.PlayerVanityAccessor;
 
 @Mixin(value = RenderPlayer.class, remap = false)
-public class DisableArmor {
+public class RenderPlayerMixin {
 
     public boolean hideArmor = false;
 

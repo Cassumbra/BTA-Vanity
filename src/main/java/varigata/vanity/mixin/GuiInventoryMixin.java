@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import varigata.vanity.PlayerVanityAccessor;
 
 @Mixin(value = GuiInventory.class, remap = false)
-public class vanity_GuiInventory extends GuiScreen {
+public class GuiInventoryMixin extends GuiScreen {
 
     @Shadow protected int armourButtonFloatX;
 
